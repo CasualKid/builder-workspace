@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #111827;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 8px;
+}
+
+input {
+    padding: 12px;
+    width: 80%;
+    max-width: 400px;
+
+    border: none;
+    border-radius: 8px;
+
+    margin: 10px 0;
+}
+
+.hidden {
+    display: none;
+}

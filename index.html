@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builder's Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Welcome to the Builder's Dashboard</h1>
+
+        <p id="greeting">
+            You are the Builder.
+        </p>
+
+        <button id="buildButton">
+            Start Building
+        </button>
+
+        <section id="buildingArea" class="hidden">
+
+            <h2>What are you building?</h2>
+
+            <input
+                type="text"
+                id="projectInput"
+                placeholder="Enter what you're building..."
+            >
+
+            <button id="beginButton">
+                Begin
+            </button>
+
+            <p id="projectMessage"></p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
