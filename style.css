@@ -1,45 +1,406 @@
+
+/* 1. Global page styles */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: #111827;
-    color: white;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    min-height: 100vh;
+    color: #f9fafb;
     margin: 0;
+    min-height: 100vh;
+    padding: 40px 20px;
 }
 
+/* 2. Main dashboard */
 main {
-    text-align: center;
-    width: 90%;
-    max-width: 600px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 10px;
 }
 
+h2 {
+    margin-top: 0;
+}
+
+#greeting {
+    color: #cbd5e1;
+    margin-bottom: 32px;
+}
+
+/* 3. General buttons */
 button {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
+    padding: 12px 18px;
+    border: 1px solid #374151;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font: inherit;
+    font-weight: 600;
     cursor: pointer;
-    margin: 8px;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
-input {
-    padding: 12px;
-    width: 80%;
-    max-width: 400px;
+button:hover {
+    background: #1d4ed8;
+}
 
-    border: none;
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 3px;
+}
+
+/* 4. Template gallery */
+#templatesSection > p,
+#projectFormSection > p {
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+.templateGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.templateCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    min-height: 170px;
+    padding: 22px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    text-align: left;
+}
+
+.templateCard:hover {
+    background: #273449;
+    border-color: #60a5fa;
+    transform: translateY(-2px);
+}
+
+.templateIcon {
+    font-size: 1.8rem;
+}
+
+.templateCard strong {
+    font-size: 1.05rem;
+}
+
+.templateCard span:last-child {
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+#customProjectButton {
+    background: transparent;
+    border-color: #4b5563;
+}
+
+#customProjectButton:hover,
+#backButton:hover {
+    background: #1f2937;
+}
+
+/* 5. Project creation form */
+#projectFormSection {
+    margin-top: 24px;
+    padding: 28px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 16px;
+}
+
+#backButton {
+    background: transparent;
+    border-color: #4b5563;
+    margin-bottom: 24px;
+}
+
+#projectForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+#projectForm label {
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #4b5563;
     border-radius: 8px;
-
-    margin: 10px 0;
+    background: #111827;
+    color: #f9fafb;
+    font: inherit;
 }
 
+textarea {
+    resize: vertical;
+    line-height: 1.5;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9ca3af;
+}
+
+#projectForm button {
+    align-self: flex-start;
+    margin-top: 16px;
+}
+
+#projectMessage {
+    margin-top: 18px;
+    color: #93c5fd;
+    line-height: 1.6;
+}
+
+/* 6. Utility class */
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+/* 7. Mobile layout */
+@media (max-width: 600px) {
+    body {
+        padding: 28px 16px;
+    }
+
+    .templateGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .templateCard {
+        min-height: auto;
+    }
+
+    #projectFormSection {
+        padding: 20px;
+    }
+}
+
+/* 8. Saved projects section */
+#savedProjectsSection {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid #374151;
+}
+
+#savedProjectsSection > p {
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+#projectsList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+#emptyProjectsMessage {
+    grid-column: 1 / -1;
+    padding: 24px;
+    background: #1f2937;
+    border: 1px dashed #4b5563;
+    border-radius: 12px;
+    color: #9ca3af;
+    text-align: center;
+}
+
+.projectCard {
+    padding: 20px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 12px;
+}
+
+.projectCard h3 {
+    margin-top: 0;
+    overflow-wrap: anywhere;
+}
+
+.projectCard p {
+    color: #cbd5e1;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.projectCard .projectFirstAction {
+    padding: 12px;
+    background: #111827;
+    border-radius: 8px;
+    color: #93c5fd;
+}
+
+.projectCard button {
+    margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+    #projectsList {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 9. Project status and management */
+.projectStatus {
+    display: inline-block;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: #374151;
+    color: #e5e7eb;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.projectStatus.completed {
+    background: #14532d;
+    color: #bbf7d0;
+}
+
+.projectActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.projectActions button {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.completeProjectButton {
+    background: #047857;
+}
+
+.completeProjectButton:hover {
+    background: #065f46;
+}
+
+.deleteProjectButton {
+    background: transparent;
+    border-color: #b91c1c;
+    color: #fca5a5;
+}
+
+.deleteProjectButton:hover {
+    background: #7f1d1d;
+}
+
+.projectCard.isCompleted {
+    border-color: #166534;
+}
+
+.projectCard.isCompleted h3 {
+    color: #9ca3af;
+}
+
+/* 10. Progress overview */
+#progressOverview {
+    margin-top: 40px;
+    padding: 28px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 16px;
+}
+
+#progressOverview > p {
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+}
+
+.statCard {
+    padding: 20px;
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 12px;
+}
+
+.statCard h3 {
+    margin: 0 0 8px;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    overflow-wrap: anywhere;
+}
+
+.statCard p {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.completionOverview {
+    margin-top: 28px;
+}
+
+.completionLabels {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+#completionPercentage {
+    color: #93c5fd;
+    font-variant-numeric: tabular-nums;
+}
+
+.progressTrack {
+    height: 12px;
+    overflow: hidden;
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 999px;
+}
+
+#completionBar {
+    width: 0%;
+    height: 100%;
+    background: #3b82f6;
+    border-radius: inherit;
+    transition: width 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    #progressOverview {
+        padding: 20px;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .statCard {
+        padding: 16px;
+    }
 }
