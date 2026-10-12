@@ -17,27 +17,149 @@
             You are the Builder.
         </p>
 
-        <button id="buildButton">
-            Start Building
+       
+<section id="templatesSection">
+    <h2>What would you like to build?</h2>
+    <p>Choose a starting point, or bring your own idea.</p>
+
+    <div class="templateGrid">
+
+        <button class="templateCard" data-template="website">
+            <span class="templateIcon">💻</span>
+            <strong>Build a Website</strong>
+            <span>Create a portfolio or web project.</span>
         </button>
 
-        <section id="buildingArea" class="hidden">
+        <button class="templateCard" data-template="learning">
+            <span class="templateIcon">📚</span>
+            <strong>Learn a Skill</strong>
+            <span>Turn learning into a practical project.</span>
+        </button>
 
-            <h2>What are you building?</h2>
+        <button class="templateCard" data-template="business">
+            <span class="templateIcon">🚀</span>
+            <strong>Start a Business</strong>
+            <span>Develop your business idea.</span>
+        </button>
 
-            <input
-                type="text"
-                id="projectInput"
-                placeholder="Enter what you're building..."
-            >
+        <button class="templateCard" data-template="growth">
+            <span class="templateIcon">🎯</span>
+            <strong>Personal Growth</strong>
+            <span>Work toward a meaningful goal.</span>
+        </button>
 
-            <button id="beginButton">
-                Begin
-            </button>
+    </div>
 
-            <p id="projectMessage"></p>
+    <button id="customProjectButton">
+        + Start with my own idea
+    </button>
+</section>
 
-        </section>
+<section id="projectFormSection" class="hidden">
+
+    <button id="backButton" type="button">
+        ← Back to templates
+    </button>
+
+    <h2>Create Your Project</h2>
+    <p>Every meaningful build begins with intention.</p>
+
+    <form id="projectForm">
+
+        <label for="projectName">What are you building?</label>
+        <input
+            type="text"
+            id="projectName"
+            placeholder="Give your project a name"
+            required
+        >
+
+        <label for="projectWhy">Why does this matter to you?</label>
+        <textarea
+            id="projectWhy"
+            placeholder="What motivates you to build this?"
+            rows="3"
+            required
+        ></textarea>
+
+        <label for="projectOutcome">What does success look like?</label>
+        <textarea
+            id="projectOutcome"
+            placeholder="Describe the outcome you want to achieve"
+            rows="3"
+            required
+        ></textarea>
+
+        <label for="projectFirstAction">What's your first action?</label>
+        <input
+            type="text"
+            id="projectFirstAction"
+            placeholder="What's the first step you can take?"
+            required
+        >
+
+        <button type="submit">Create My Project</button>
+
+    </form>
+
+    <p id="projectMessage" aria-live="polite"></p>
+
+</section>
+
+<section id="progressOverview">
+    <h2>Your Progress</h2>
+    <p>A snapshot of everything you're building.</p>
+
+    <div class="statsGrid">
+        <article class="statCard">
+            <h3 id="totalProjects">0</h3>
+            <p>Total Builds</p>
+        </article>
+
+        <article class="statCard">
+            <h3 id="activeProjects">0</h3>
+            <p>Active</p>
+        </article>
+
+        <article class="statCard">
+            <h3 id="completedProjects">0</h3>
+            <p>Completed</p>
+        </article>
+    </div>
+
+    <div class="completionOverview">
+        <div class="completionLabels">
+            <span>Overall Completion</span>
+            <span id="completionPercentage">0%</span>
+        </div>
+
+        <div
+            class="progressTrack"
+            role="progressbar"
+            aria-label="Project completion"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            id="completionProgress"
+        >
+            <div id="completionBar"></div>
+        </div>
+    </div>
+</section>
+
+
+<section id="savedProjectsSection">
+    <h2>Your Builds</h2>
+    <p>Your ideas, organized into projects you can act on.</p>
+
+    <div id="projectsList">
+        <p id="emptyProjectsMessage">
+            No projects yet. Your next great build starts here.
+        </p>
+    </div>
+</section>
+
+
 
     </main>
 
